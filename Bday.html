@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Miss Purkait ❤️</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+
+overflow:hidden;
+
+height:100vh;
+
+color:white;
+
+background:linear-gradient(-45deg,#ff4e9b,#9b5cff,#4facfe,#ffd86f);
+
+background-size:400% 400%;
+
+animation:gradientBG 12s ease infinite;
+
+}
+
+@keyframes gradientBG{
+
+0%{background-position:0% 50%;}
+
+50%{background-position:100% 50%;}
+
+100%{background-position:0% 50%;}
+
+}
+
+.page{
+
+position:absolute;
+
+width:100%;
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
+transition:all 1s ease;
+
+}
+
+.hidden{
+
+opacity:0;
+
+pointer-events:none;
+
+transform:scale(.9);
+
+}
+
+h1{
+
+font-size:2.4rem;
+
+margin-bottom:15px;
+
+}
+
+p{
+
+max-width:650px;
+
+line-height:1.9;
+
+font-size:1.1rem;
+
+margin-bottom:25px;
+
+}
+
+button{
+
+padding:15px 32px;
+
+border:none;
+
+border-radius:50px;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff007f;
+
+transition:.4s;
+
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+
+}
+
+button:hover{
+
+transform:translateY(-5px) scale(1.05);
+
+background:#ffe5f2;
+
+}
+
+button:active{
+
+transform:scale(.95);
+
+}
+
+.glow{
+
+animation:glow 1.6s infinite alternate;
+
+letter-spacing:2px;
+
+}
+
+@keyframes glow{
+
+from{
+
+text-shadow:0 0 10px white;
+
+}
+
+to{
+
+text-shadow:
+
+0 0 20px white,
+
+0 0 40px #ff69b4,
+
+0 0 70px #ff1493;
+
+}
+
+}
+
+/* Floating Balloons */
+
+.balloon{
+
+position:absolute;
+
+font-size:55px;
+
+bottom:-100px;
+
+animation:float 8s linear infinite;
+
+}
+
+.balloon:nth-child(1){
+
+left:10%;
+
+}
+
+.balloon:nth-child(2){
+
+left:35%;
+
+animation-delay:2s;
+
+}
+
+.balloon:nth-child(3){
+
+left:60%;
+
+animation-delay:4s;
+
+}
+
+.balloon:nth-child(4){
+
+left:85%;
+
+animation-delay:1s;
+
+}
+
+@keyframes float{
+
+from{
+
+bottom:-100px;
+
+}
+
+to{
+
+bottom:120%;
+
+}
+
+}
+
+/* Gift */
+
+.gift{
+
+font-size:120px;
+
+cursor:pointer;
+
+animation:bounce 1.5s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-18px);
+
+}
+
+}
+
+/* Cake */
+
+.cake{
+
+font-size:150px;
+
+animation:bounce 1s infinite;
+
+}
+
+/* Final Text */
+
+.final-text{
+
+font-size:1.4rem;
+
+font-weight:bold;
+
+line-height:2;
+
+}
+
+/* Floating Hearts */
+
+.heart{
+
+position:fixed;
+
+font-size:30px;
+
+pointer-events:none;
+
+animation:heartFloat 6s linear forwards;
+
+}
+
+@keyframes heartFloat{
+
+0%{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-110vh);
+
+opacity:0;
+
+}
+
+}
+
+@media(max-width:600px){
+
+h1{
+
+font-size:1.8rem;
+
+}
+
+p{
+
+font-size:1rem;
+
+}
+
+.gift{
+
+font-size:90px;
+
+}
+
+.cake{
+
+font-size:120px;
+
+}
+
+button{
+
+padding:13px 24px;
+
+font-size:15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ===========================
+        PAGE 1
+============================ -->
+
+<div class="page" id="page1">
+
+<h1 class="glow">
+
+🎉 Happy Birthday Miss Purkait ❤️ 🎉
+
+</h1>
+
+<p>
+
+Today isn't just another day...
+
+it's the celebration of someone truly wonderful.
+
+I made this little surprise especially for you.
+
+I hope it brings a smile to your face and makes your birthday even more memorable. 💖
+
+</p>
+
+<button onclick="nextPage(1,2)">
+
+Begin Your Surprise ✨
+
+</button>
+
+</div>
+<!-- ===========================
+        PAGE 2
+============================ -->
+
+<div class="page hidden" id="page2">
+
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+<div class="balloon">🎈</div>
+
+<h1 class="glow">
+🎈 Surprise #1 🎈
+</h1>
+
+<p>
+
+A birthday is the beginning of another beautiful chapter.
+
+May this new journey bring endless happiness,
+good health, success, unforgettable memories,
+and countless reasons to smile every single day.
+
+You deserve all the love and joy in the world. ❤️
+
+</p>
+
+<button onclick="nextPage(2,3)">
+Next Surprise →
+</button>
+
+</div>
+
+<!-- ===========================
+        PAGE 3
+============================ -->
+
+<div class="page hidden" id="page3">
+
+<h1 class="glow">
+🎁 A Special Gift For You 🎁
+</h1>
+
+<div class="gift" onclick="openGift()">
+🎁
+</div>
+
+<p id="giftMessage">
+
+Tap the gift box to discover
+a little birthday wish made just for you.
+
+</p>
+
+<button
+id="giftBtn"
+style="display:none"
+onclick="nextPage(3,4)">
+
+Continue ❤️
+
+</button>
+
+</div>
+<!-- ==========================================
+            PAGE 4
+========================================== -->
+
+<div class="page hidden" id="page4">
+
+<h1 class="glow">💌 A Special Message For You 💌</h1>
+
+<p>
+
+Dear <b>Miss Purkait ❤️</b>,
+<br><br>
+
+Birthdays are not just about growing older,
+they are about celebrating another beautiful chapter of life.
+
+May every sunrise bring you new hope,
+every smile bring you happiness,
+every challenge make you stronger,
+and every dream find its way to reality.
+
+You deserve all the love, laughter,
+success, peace and beautiful memories
+this world has to offer.
+
+Never stop smiling,
+because your smile has the power
+to brighten someone's day.
+
+May today become one of your happiest memories
+and may the coming year be filled with countless blessings.
+
+Thank you for being such a wonderful person.
+
+🌸 Happy Birthday Once Again! 🌸
+
+</p>
+
+<button onclick="heartRain();nextPage(4,5)">
+
+One Final Surprise ❤️
+
+</button>
+
+</div>
+
+
+
+<!-- ==========================================
+            PAGE 5
+========================================== -->
+
+<div class="page hidden" id="page5">
+
+<h1 class="glow">
+
+🎂 Make A Birthday Wish 🎂
+
+</h1>
+
+<div class="cake">
+
+🎂
+
+</div>
+
+<p id="wishText">
+
+Close your eyes... 😊
+
+Take a deep breath...
+
+Think about the happiest dream
+you want to come true.
+
+Believe in yourself.
+
+Believe in miracles.
+
+When you're ready...
+
+Click the button below.
+
+✨✨✨
+
+</p>
+
+<button onclick="countdownWish()">
+
+Blow The Candles 🕯️
+
+</button>
+
+</div>
+
+
+
+<script>
+
+/* ==========================================
+        COUNTDOWN BEFORE FINAL PAGE
+========================================== */
+
+function countdownWish(){
+
+let text=document.getElementById("wishText");
+
+let count=3;
+
+text.innerHTML="✨ Get Ready... ✨";
+
+let timer=setInterval(()=>{
+
+text.innerHTML=
+
+"<h1 style='font-size:70px;'>"+count+"</h1>";
+
+count--;
+
+if(count<0){
+
+clearInterval(timer);
+
+text.innerHTML=`
+
+🎉 Wonderful! 🎉
+
+<br><br>
+
+May every wish you made today
+come true.
+
+May happiness always stay with you.
+
+May your smile never fade.
+
+❤️ Happy Birthday Miss Purkait ❤️
+
+`;
+
+confetti({
+
+particleCount:250,
+
+spread:180
+
+});
+
+setTimeout(()=>{
+
+nextPage(5,6);
+
+},2500);
+
+}
+
+},1000);
+
+}
+
+</script>
+<!-- ==========================================
+            PAGE 6
+========================================== -->
+
+<div class="page hidden" id="page6">
+
+<h1 class="glow">
+
+🎉 Happy Birthday Miss Purkait ❤️ 🎉
+
+</h1>
+
+<div class="final-text">
+
+May your smile always shine brighter than the stars. ✨
+
+<br><br>
+
+May every dream you dream become reality.
+
+🌸
+
+<br><br>
+
+May every step you take lead you toward success.
+
+💖
+
+<br><br>
+
+May happiness, peace and love always stay with you.
+
+😊
+
+<br><br>
+
+Thank you for being such a wonderful person.
+
+Never stop smiling.
+
+❤️
+
+<br><br>
+
+Wishing you a lifetime filled with beautiful memories.
+
+🎂 Happy Birthday Once Again! 🎂
+
+</div>
+
+<br>
+
+<button onclick="megaCelebrate()">
+
+🎉 Celebrate 🎉
+
+</button>
+
+</div>
+
+<script>
+
+/* ==========================================
+        PAGE NAVIGATION
+========================================== */
+
+function nextPage(current,next){
+
+document.getElementById("page"+current)
+.classList.add("hidden");
+
+document.getElementById("page"+next)
+.classList.remove("hidden");
+
+confetti({
+
+particleCount:120,
+
+spread:120
+
+});
+
+}
+
+/* ==========================================
+        OPEN GIFT
+========================================== */
+
+function openGift(){
+
+document.getElementById("giftMessage").innerHTML=
+
+`🎁
+
+Inside this gift is a year full of happiness,
+beautiful memories,
+good health,
+success,
+love,
+and countless reasons to smile.
+
+Happy Birthday Miss Purkait ❤️
+
+Keep shining and stay happy always. 🌸`;
+
+document.getElementById("giftBtn").style.display="inline-block";
+
+confetti({
+
+particleCount:300,
+
+spread:180
+
+});
+
+}
+
+/* ==========================================
+        HEART RAIN
+========================================== */
+
+function heartRain(){
+
+for(let i=0;i<60;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"💖":"🌸";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="-40px";
+
+heart.style.fontSize=(18+Math.random()*18)+"px";
+
+document.body.appendChild(heart);
+
+let pos=-40;
+
+let fall=setInterval(()=>{
+
+pos+=4;
+
+heart.style.top=pos+"px";
+
+if(pos>window.innerHeight){
+
+clearInterval(fall);
+
+heart.remove();
+
+}
+
+},20);
+
+}
+
+}
+
+/* ==========================================
+        GRAND CELEBRATION
+========================================== */
+
+function megaCelebrate(){
+
+confetti({
+
+particleCount:700,
+
+spread:360,
+
+origin:{y:.6}
+
+});
+
+heartRain();
+
+setTimeout(()=>{
+
+heartRain();
+
+},800);
+
+setTimeout(()=>{
+
+heartRain();
+
+},1600);
+
+const duration=5000;
+
+const end=Date.now()+duration;
+
+(function frame(){
+
+confetti({
+
+particleCount:6,
+
+angle:60,
+
+spread:70,
+
+origin:{x:0}
+
+});
+
+confetti({
+
+particleCount:6,
+
+angle:120,
+
+spread:70,
+
+origin:{x:1}
+
+});
+
+if(Date.now()<end){
+
+requestAnimationFrame(frame);
+
+}
+
+})();
+
+}
+
+/* ==========================================
+        AUTO CONFETTI
+========================================== */
+
+window.onload=()=>{
+
+const end=Date.now()+3000;
+
+(function frame(){
+
+confetti({
+
+particleCount:5,
+
+angle:60,
+
+spread:70,
+
+origin:{x:0}
+
+});
+
+confetti({
+
+particleCount:5,
+
+angle:120,
+
+spread:70,
+
+origin:{x:1}
+
+});
+
+if(Date.now()<end){
+
+requestAnimationFrame(frame);
+
+}
+
+})();
+
+}
+
+</script>
+
+</body>
+</html>
